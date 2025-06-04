@@ -14,12 +14,14 @@ class MessageSentEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $message;
+
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct($message)
     {
-        //
+        $message = $message->load('sender:id,name', 'receiver:id,name');
     }
 
     /**

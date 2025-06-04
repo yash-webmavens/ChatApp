@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Chat;
 
+use App\Events\MessageSentEvent;
 use App\Models\Message as ModelsMessage;
 use App\Models\User;
 use Illuminate\Support\Collection;
@@ -44,7 +45,15 @@ class Message extends Component
 
     public function sendMessage()
     {
-        $this->saveMessage();
+        # Save Message
+        $newMessage = $this->saveMessage();
+
+        # Add New Message to Existing Messages
+        $this->messages[] = $newMessage;
+
+        # Broadcast the Message Sent Event
+        broadcast(new MessageSentEvent($newMessage));
+
         $this->message = '';
         // $this->resetAll();
     }

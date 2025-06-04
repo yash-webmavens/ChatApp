@@ -12,7 +12,7 @@
 
                     {{-- If the sender is not the login user --}}
                     @if ($message->sender->id !== auth()->id())
-                        <div class="grid pb-2">
+                        <div class="grid pb-3">
                             <div class="flex gap-2.5 mb-2">
                                 <img src="https://pagedone.io/asset/uploads/1710412177.png" alt="Shanay image" class="w-10 h-11">
                                 <div class="grid">
@@ -21,12 +21,12 @@
                                     </h5>
                                     <div class="w-max grid">
                                         <div
-                                            class="px-3.5 py-2 bg-gray-100 rounded-3xl rounded-tl-none justify-start  items-center gap-3 inline-flex">
+                                            class="px-3.5 py-2 bg-gray-100 rounded-3xl rounded-tl-none justify-start   gap-3 inline-flex">
                                             <h5 class="text-gray-900 text-sm font-normal leading-snug">
                                                 {{ $message->message }}
                                             </h5>
                                         </div>
-                                        <div class="justify-end items-center inline-flex mb-2.5">
+                                        <div class="justify-end  inline-flex mb-2.5">
                                             <h6 class="text-gray-500 text-xs font-normal leading-4 py-1">
                                                 {{ $message->created_at < now()->subDays(1) ? $message->created_at->format('h:i A') : $message->created_at->diffForHumans() }}
                                             </h6>
@@ -38,7 +38,7 @@
                     @else
 
                         {{-- Sender Section --}}
-                        <div class="flex gap-2.5 justify-end pb-2">
+                        <div class="flex gap-2.5 justify-end pb-3">
                             <div class="">
                                 <div class="grid mb-2">
                                     <h5 class="text-right text-gray-900 text-sm font-semibold leading-snug pb-1">You</h5>
