@@ -4,4 +4,13 @@
  * allow your team to quickly build robust real-time web applications.
  */
 
+window.global = window;
+
+import { createApp } from 'vue';
+import VideoChat from './components/VideoChat.vue';
 import './echo';
+import './helpers';
+
+const app = createApp({});
+app.component('video-chat', VideoChat);
+app.mount('#app');
